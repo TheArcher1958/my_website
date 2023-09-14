@@ -1,9 +1,13 @@
-import './style.css'
+// import './style.css'
 
 import * as THREE from 'three';
-import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
+// import {OrbitControls} from 'three';
+// import { GLTFLoader } from 'three';
+// import { FBXLoader } from 'three';
+// import {OrbitControls} from "three/examples/jsm/controls/OrbitControls";
+import {OrbitControls} from "three/addons/controls/OrbitControls";
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { FBXLoader } from 'three/addons/loaders/FBXLoader'
 
 
 const scene = new THREE.Scene();
@@ -66,6 +70,7 @@ function _LoadAnimatedModel() {
             idle.play();
         });
         scene.add(fbx);
+        // fbx.
         fbx.position.x = 0
         fbx.position.y = 0.06
         fbx.position.z = 0
@@ -115,7 +120,8 @@ function animateothers() {
 
     requestAnimationFrame( animateothers );
 
-    mixer.update(0.015)
+    if(mixer) mixer.update(0.019)
+    
 
     renderer.render( scene, camera );
 }
